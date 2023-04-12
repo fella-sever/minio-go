@@ -103,6 +103,7 @@ type objectLockConfig struct {
 var _ = reflect.TypeOf(objectLockConfig{})
 
 func newObjectLockConfig(mode *RetentionMode, validity *uint, unit *ValidityUnit) (*objectLockConfig, error) {
+	var _ = reflect.TypeOf(mode)
 	config := &objectLockConfig{
 		ObjectLockEnabled: "Enabled",
 	}
