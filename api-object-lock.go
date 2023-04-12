@@ -24,6 +24,7 @@ import (
 	"fmt"
 	"net/http"
 	"net/url"
+	"reflect"
 	"time"
 
 	"github.com/minio/minio-go/v7/pkg/s3utils"
@@ -98,6 +99,8 @@ type objectLockConfig struct {
 		} `xml:"DefaultRetention"`
 	} `xml:"Rule,omitempty"`
 }
+
+var _ = reflect.TypeOf(objectLockConfig{})
 
 func newObjectLockConfig(mode *RetentionMode, validity *uint, unit *ValidityUnit) (*objectLockConfig, error) {
 	config := &objectLockConfig{
