@@ -148,8 +148,6 @@ const (
 
 // New - instantiate minio client with options
 func New(endpoint string, opts *Options) (*Client, error) {
-	fmt.Println("skdjghdkfjgh")
-	fmt.Println("sksksk")
 	fmt.Println("jdjdjddjdj")
 	if opts == nil {
 		return nil, errors.New("no options provided")
