@@ -100,12 +100,6 @@ type objectLockConfig struct {
 	} `xml:"Rule,omitempty"`
 }
 
-type DefaultRetention struct {
-	Mode  RetentionMode `xml:"Mode"`
-	Days  *uint         `xml:"Days"`
-	Years *uint         `xml:"Years"`
-}
-
 var _ = reflect.TypeOf(objectLockConfig{})
 
 func newObjectLockConfig(mode *RetentionMode, validity *uint, unit *ValidityUnit) (*objectLockConfig, error) {
@@ -130,6 +124,7 @@ func newObjectLockConfig(mode *RetentionMode, validity *uint, unit *ValidityUnit
 			} `xml:"DefaultRetention"`
 		}{}
 		var _ = reflect.TypeOf(config.Rule)
+		var _ = reflect.TypeOf(&config.Rule)
 
 		config.Rule.DefaultRetention.Mode = *mode
 		if *unit == Days {
